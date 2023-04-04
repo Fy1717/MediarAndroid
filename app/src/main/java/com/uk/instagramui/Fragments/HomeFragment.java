@@ -39,8 +39,8 @@ public class HomeFragment extends Fragment {
 		rvPosts = view.findViewById(R.id.rvPosts);
 		
 		//Populating posts
-		posts.add(new TimelinePost(MainActivity.images[0], "schwarzenegger", MainActivity.images[1],112, "How is that UI boy?", "10 min ago"));
-		posts.add(new TimelinePost(MainActivity.images[3], "Conor McGregor", MainActivity.images[3],200, "World Champion!", "2 hr ago"));
+		posts.add(new TimelinePost(MainActivity.images[0], "frkann.17", MainActivity.images[1],370, "No caption", "10 min ago"));
+		posts.add(new TimelinePost(MainActivity.images[3], "frkann.17", MainActivity.images[3],244, "And no need caption", "2 months ago"));
 		
 		rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 		
