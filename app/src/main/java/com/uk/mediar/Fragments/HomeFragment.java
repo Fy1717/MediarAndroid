@@ -1,19 +1,20 @@
-package com.uk.instagramui.Fragments;
+package com.uk.mediar.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.uk.instagramui.Activities.MainActivity;
-import com.uk.instagramui.Adapters.TimelinePostAdapter;
-import com.uk.instagramui.Model.TimelinePost;
-import com.uk.instagramui.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.uk.mediar.Activities.MainActivity;
+import com.uk.mediar.Adapters.TimelinePostAdapter;
+import com.uk.mediar.Model.TimelinePost;
+import com.uk.mediar.R;
 
 import java.util.ArrayList;
 

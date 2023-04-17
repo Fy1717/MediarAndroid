@@ -1,4 +1,4 @@
-package com.uk.instagramui.Model;
+package com.uk.mediar.Model;
 
 public class TimelinePost {
 	private String profilePic;

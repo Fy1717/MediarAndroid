@@ -1,4 +1,4 @@
-package com.uk.instagramui;
+package com.uk.mediar;
 
 import org.junit.Test;
 

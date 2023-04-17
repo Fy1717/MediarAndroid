@@ -1,21 +1,22 @@
-package com.uk.instagramui.Activities;
+package com.uk.mediar.Activities;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.uk.instagramui.Fragments.HomeFragment;
-import com.uk.instagramui.Fragments.NotificationsFragment;
-import com.uk.instagramui.Fragments.ProfileFragment;
-import com.uk.instagramui.Fragments.SearchFragment;
-import com.uk.instagramui.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.uk.mediar.Fragments.HomeFragment;
+import com.uk.mediar.Fragments.NotificationsFragment;
+import com.uk.mediar.Fragments.ProfileFragment;
+import com.uk.mediar.Fragments.SearchFragment;
+import com.uk.mediar.R;
 
 public class MainActivity extends AppCompatActivity {
 	

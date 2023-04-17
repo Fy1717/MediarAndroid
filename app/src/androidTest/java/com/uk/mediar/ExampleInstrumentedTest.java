@@ -1,4 +1,4 @@
-package com.uk.instagramui;
+package com.uk.mediar;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
