@@ -1,33 +1,42 @@
 package com.uk.mediar.Service.ApiModel;
 
+import com.google.gson.annotations.SerializedName;
+import com.uk.mediar.Model.User;
+
+import org.json.JSONObject;
+
+import java.util.LinkedHashMap;
+
 public class LoginModel {
-    private static LoginModel loginModel;
+    @SerializedName("success")
+    public Boolean success;
+    @SerializedName("message")
+    public String message;
 
-    private Boolean loginSuccess;
-    private String errorMessage;
+    @SerializedName("data")
+    public LinkedHashMap<String, Object> data;
 
-
-    public Boolean getLoginSuccess() {
-        return loginSuccess;
+    public Boolean getSuccess() {
+        return success;
     }
 
-    public void setLoginSuccess(Boolean loginSuccess) {
-        this.loginSuccess = loginSuccess;
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public static LoginModel getInstance() {
-        if (loginModel == null) {
-            loginModel = new LoginModel();
-        }
+    public LinkedHashMap<String, Object> getData() {
+        return data;
+    }
 
-        return loginModel;
+    public void setData(LinkedHashMap data) {
+        this.data = data;
     }
 }

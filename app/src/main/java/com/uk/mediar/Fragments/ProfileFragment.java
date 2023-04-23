@@ -4,20 +4,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import com.uk.mediar.Adapters.PostAdapter;
 import com.uk.mediar.Adapters.StoryAdapter;
 import com.uk.mediar.Model.Post;
+import com.uk.mediar.Model.Share;
 import com.uk.mediar.Model.Story;
+import com.uk.mediar.Model.User;
 import com.uk.mediar.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static com.uk.mediar.Activities.MainActivity.images;
-import static com.uk.mediar.Activities.MainActivity.profilePicUrl;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +32,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 public class ProfileFragment extends Fragment {
 	
 	private CircleImageView profilePic;
-	
+	private TextView username, profile_url, name, followings_count, followers_count, posts_count, total_points;
+
 	private RecyclerView rvStories;
 	private StoryAdapter storyAdapter;
 	
@@ -38,6 +42,16 @@ public class ProfileFragment extends Fragment {
 	
 	private ArrayList<Story> stories;
 	private ArrayList<Post> posts;
+
+	static User user = User.getInstance();
+
+	public String profilePicUrl = user.getImage();
+	public String images[] = { profilePicUrl,
+			profilePicUrl,
+			profilePicUrl,
+			profilePicUrl,
+			profilePicUrl
+	};
 	
 	@Nullable
 	@Override
@@ -45,23 +59,28 @@ public class ProfileFragment extends Fragment {
 		return inflater.inflate(R.layout.profile_layout, container, false);
 	}
 	
-	
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		
+
 		profilePic = view.findViewById(R.id.profile_image);
-		
+		username = view.findViewById(R.id.username);
+		name = view.findViewById(R.id.name);
+		posts_count = view.findViewById(R.id.posts_count);
+		followers_count = view.findViewById(R.id.followers_count);
+		followings_count = view.findViewById(R.id.followings_count);
+		total_points = view.findViewById(R.id.total_points);
+		profile_url = view.findViewById(R.id.profile_url);
 		rvStories = view.findViewById(R.id.rvStories);
 		rvPosts = view.findViewById(R.id.rvPosts);
-		
 		stories = new ArrayList<>();
 		posts = new ArrayList<>();
-		
-		
+
+		setProfileInfos();
+
 		loadProfilePic();
-		
 		populateStories();
+
 		storyAdapter = new StoryAdapter(getContext(), stories);
 		
 		LinearLayoutManager storiesLayoutManager = new LinearLayoutManager(getContext());
@@ -76,40 +95,62 @@ public class ProfileFragment extends Fragment {
 		rvPosts.setLayoutManager(staggeredGridLayoutManager);
 		rvPosts.setAdapter(postAdapter);
 		rvPosts.setNestedScrollingEnabled(false);
-	
 	}
 	
-	
-	
 	private void loadProfilePic() {
-		
 		if (!isDetached() && getContext() != null) {
 			Glide.with(getContext())
 				.load(profilePicUrl)
 				.into(profilePic);
 		}
-		
 	}
-	
-	
-	
+
+	private void setProfileInfos() {
+		username.setText(user.getUsername());
+		name.setText(user.getName());
+		posts_count.setText(String.valueOf(user.getPosts().size()));
+		followers_count.setText(String.valueOf(user.getFollowers().size()));
+		followings_count.setText(String.valueOf(user.getFollowings().size()));
+		total_points.setText(String.valueOf(86));
+		profile_url.setText("www.mediar.com/" + user.getUsername());
+
+		System.out.println(user.getPosts());
+
+		for (Object postObject : user.getPosts()) {
+
+			System.out.println("aaa: " + postObject);
+
+
+			try {
+				Gson gson = new Gson();
+				LinkedTreeMap<String, Object> data = gson.fromJson(postObject.toString(), LinkedTreeMap.class);
+				Share share = new Share(
+						(String) data.get("Content").toString(),
+						(String) data.get("Id").toString(),
+						(String) data.get("Point").toString()
+				);
+
+				System.out.println("xxxx : " + share.Point);
+			} catch (Exception e) {
+				System.out.println("EEEE : " + e.getLocalizedMessage());
+			}
+		}
+	}
 	private void populateStories() {
-		//Population logic goes here
-		
-		stories.add(new Story(profilePicUrl, true));
-		stories.add(new Story(images[1], true));
-		stories.add(new Story(images[2], false));
+		try {
+			for (int i = 0; i < user.getPosts().size(); i++) {
+				stories.add(new Story(profilePicUrl, false));
+			}
+		} catch (Exception e) {}
 	}
 
 	
 	private void populatePosts() {
-		//Population logic goes here
-		
-		for (int i = 0; i < 5; i++) {                  //Populating a few images
-			String storyImage = images[i%5];
-			posts.add(new Post(storyImage));
-		}
+		try {
+			for (int i = 0; i < user.getPosts().size(); i++) {
+				String storyImage = images[i%5];
+				posts.add(new Post(storyImage));
+			}
+		} catch (Exception e) {}
 	}
-	
-	
 }

@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.uk.mediar.Model.User;
 import com.uk.mediar.R;
+import com.uk.mediar.Service.ApiModel.ErrorHandlerModel;
 import com.uk.mediar.Service.Request.Login;
 
 public class LoginActivity extends AppCompatActivity {
@@ -23,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     View loadingLayout;
     String emailS;
     String passwordS;
+
+    ErrorHandlerModel errorHandlerModel = ErrorHandlerModel.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 passwordS = password.getText().toString();
 
                 if(!emailS.equals("") && !passwordS.equals("")) {
+                    errorHandlerModel.setLoginErrorMessage(null);
                     LoginActivity.this.runOnUiThread(new Runnable() {
                         public void run() {
                             loadingLayout.setVisibility(View.VISIBLE);
@@ -54,8 +59,6 @@ public class LoginActivity extends AppCompatActivity {
                     });
 
                     controlLogin(emailS, passwordS);
-                    //new LoginRequest().execute(emailS, passwordS);
-                    //new AsyncTask().execute();
                 }
             }
         });
@@ -76,7 +79,16 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     } else {
-                        // TODO: User should be informated for some errors
+
+                        if (errorHandlerModel.getLoginErrorMessage() != null && !errorHandlerModel.getLoginErrorMessage().equals("")) {
+                            Toast.makeText(LoginActivity.this, errorHandlerModel.getLoginErrorMessage(), Toast.LENGTH_LONG).show();
+                        }
+
+                        LoginActivity.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                loadingLayout.setVisibility(View.GONE);
+                            }
+                        });
                     }
                 });
     }

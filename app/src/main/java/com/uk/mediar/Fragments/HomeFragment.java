@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.uk.mediar.Activities.MainActivity;
 import com.uk.mediar.Adapters.TimelinePostAdapter;
 import com.uk.mediar.Model.TimelinePost;
+import com.uk.mediar.Model.User;
 import com.uk.mediar.R;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class HomeFragment extends Fragment {
 	private RecyclerView rvPosts;
 	private TimelinePostAdapter postAdapter;
 	private ArrayList<TimelinePost> posts;
+
+	User user = User.getInstance();
 	
 	@Nullable
 	@Override
@@ -40,13 +43,12 @@ public class HomeFragment extends Fragment {
 		rvPosts = view.findViewById(R.id.rvPosts);
 		
 		//Populating posts
-		posts.add(new TimelinePost(MainActivity.images[0], "frkann.17", MainActivity.images[1],370, "No caption", "10 min ago"));
-		posts.add(new TimelinePost(MainActivity.images[3], "frkann.17", MainActivity.images[3],244, "And no need caption", "2 months ago"));
+		posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),370, "No caption", "10 min ago"));
+		posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),244, "And no need caption", "2 months ago"));
 		
 		rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 		
 		postAdapter = new TimelinePostAdapter(getContext(), posts);
 		rvPosts.setAdapter(postAdapter);
-		
 	}
 }

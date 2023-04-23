@@ -1,18 +1,28 @@
 package com.uk.mediar.Service.ApiInterface;
 
+import com.uk.mediar.Model.User;
 import com.uk.mediar.Service.ApiModel.LoginModel;
+import com.uk.mediar.Service.ApiModel.LogoutModel;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
-public interface LoginAPI {
+public interface UserAPI {
     @Multipart
     @POST("api/users/login")
     Call<LoginModel> loginUser(
             @Part("username") RequestBody username,
             @Part("password") RequestBody password
+    );
+
+    @GET("api/users/logout")
+    Call<LogoutModel> logoutUser(
+            @Header("token") String token
     );
 }
