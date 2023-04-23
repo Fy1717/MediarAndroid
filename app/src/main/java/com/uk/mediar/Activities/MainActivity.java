@@ -121,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void controlLogout() {
+		Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+		startActivity(intent);
+
 		Logout model = new ViewModelProvider(this).get(Logout.class);
 
 		model.getLogoutStatus(user.getToken())
@@ -132,9 +135,6 @@ public class MainActivity extends AppCompatActivity {
 					user.setPassword(null);
 					user.setEmail(null);
 					user.setImage(null);
-
-					Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-					startActivity(intent);
 
 					if (state == false) {
 						if (errorHandlerModel.getLogoutErrorMessage() != null && !errorHandlerModel.getLogoutErrorMessage().equals("")) {

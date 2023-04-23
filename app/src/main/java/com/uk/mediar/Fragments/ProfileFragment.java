@@ -111,31 +111,10 @@ public class ProfileFragment extends Fragment {
 		posts_count.setText(String.valueOf(user.getPosts().size()));
 		followers_count.setText(String.valueOf(user.getFollowers().size()));
 		followings_count.setText(String.valueOf(user.getFollowings().size()));
-		total_points.setText(String.valueOf(86));
+		total_points.setText(String.valueOf((int) user.getTotalPoints()));
 		profile_url.setText("www.mediar.com/" + user.getUsername());
-
-		System.out.println(user.getPosts());
-
-		for (Object postObject : user.getPosts()) {
-
-			System.out.println("aaa: " + postObject);
-
-
-			try {
-				Gson gson = new Gson();
-				LinkedTreeMap<String, Object> data = gson.fromJson(postObject.toString(), LinkedTreeMap.class);
-				Share share = new Share(
-						(String) data.get("Content").toString(),
-						(String) data.get("Id").toString(),
-						(String) data.get("Point").toString()
-				);
-
-				System.out.println("xxxx : " + share.Point);
-			} catch (Exception e) {
-				System.out.println("EEEE : " + e.getLocalizedMessage());
-			}
-		}
 	}
+
 	private void populateStories() {
 		try {
 			for (int i = 0; i < user.getPosts().size(); i++) {
@@ -144,7 +123,6 @@ public class ProfileFragment extends Fragment {
 		} catch (Exception e) {}
 	}
 
-	
 	private void populatePosts() {
 		try {
 			for (int i = 0; i < user.getPosts().size(); i++) {

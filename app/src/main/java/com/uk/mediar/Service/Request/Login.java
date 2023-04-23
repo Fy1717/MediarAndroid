@@ -41,7 +41,7 @@ public class Login extends ViewModel {
 
     private static Gson gson = new GsonBuilder().setLenient().create();
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://8023-46-154-46-151.ngrok-free.app/")
+            .baseUrl("https://ac8e-46-155-48-213.ngrok-free.app/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
 
@@ -87,6 +87,7 @@ public class Login extends ViewModel {
                             ArrayList followers = (ArrayList) data.get("followers");
                             ArrayList followings = (ArrayList) data.get("followings");
                             ArrayList<Share> posts = (ArrayList<Share>) data.get("shares");
+                            double totalPoints = (double) data.get("totalPoints");
 
                             System.out.println("LOGINMODEL DATA: " + data);
                             System.out.println("LOGINMODEL DATA TYPE: " + data.getClass());
@@ -98,7 +99,7 @@ public class Login extends ViewModel {
                             System.out.println("LOGINMODEL followers: " + followers);
                             System.out.println("LOGINMODEL followings: " + followings);
                             System.out.println("LOGINMODEL posts: " + posts);
-
+                            System.out.println("LOGINMODEL totalPoints: " + totalPoints);
 
                             User user = User.getInstance();
                             user.setEmail(email);
@@ -110,6 +111,7 @@ public class Login extends ViewModel {
                             user.setFollowings(followings);
                             user.setFollowers(followers);
                             user.setPosts(posts);
+                            user.setTotalPoints(totalPoints);
 
                             errorHandlerModel.setLoginErrorMessage(null);
 

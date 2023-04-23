@@ -16,8 +16,7 @@ public class User {
     private static ArrayList followers;
     private static ArrayList<Share> posts;
     private static ArrayList starredPosts;
-
-
+    private static double totalPoints;
 
     private static User user;
 
@@ -119,5 +118,13 @@ public class User {
 
     public static void setStarredPosts(ArrayList starredPosts) {
         User.starredPosts = starredPosts;
+    }
+
+    public static double getTotalPoints() {
+        return totalPoints;
+    }
+
+    public static void setTotalPoints(double totalPoints) {
+        User.totalPoints = totalPoints;
     }
 }
