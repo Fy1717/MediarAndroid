@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 	User user = User.getInstance();
 
 	Toolbar toolbar;
+	BottomNavigationView bottomNavigationView;
+	TextView title;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,38 +46,56 @@ public class MainActivity extends AppCompatActivity {
 
 		toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 		initialize();
+
+		title = (TextView) findViewById(R.id.title);
+
+		title.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				listenTitleClick();
+			}
+		});
 	}
 
 	private void initialize() {
-		BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+		bottomNavigationView = findViewById(R.id.bottomNavigationView);
 		
 		loadFragment(new HomeFragment());
 		
 		bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 			@Override
 			public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-				
+
 				switch (menuItem.getItemId()) {
 					case R.id.home:
 						CurrentFragmentName = "HOME";
+
+						System.out.println("AAAAAAAAAAAA");
 
 						return loadFragment(new HomeFragment());
 					case R.id.search:
 						CurrentFragmentName = "SEARCH";
 
+						System.out.println("BBBBBBBBBBBBBB");
+
 						return loadFragment(new SearchFragment());
 					case R.id.notifications:
 						CurrentFragmentName = "NOTIFICATION";
+
+						System.out.println("CCCCCCCCCCCC");
 
 						return loadFragment(new NotificationsFragment());
 					case R.id.profile:
 						CurrentFragmentName = "PROFILE";
 
+						System.out.println("DDDDDDDDDDDDD");
+
 						return loadFragment(new ProfileFragment());
 				}
-				
+
 				return false;
 			}
 		});
@@ -142,5 +163,9 @@ public class MainActivity extends AppCompatActivity {
 						}
 					}
 				});
+	}
+
+	public void listenTitleClick() {
+		bottomNavigationView.setSelectedItemId(R.id.home);
 	}
 }

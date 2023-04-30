@@ -17,9 +17,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     app:elevation="8dp"
-                    app:title="ᗰEᗪIᗩᖇ"
-                    app:titleTextColor="#000000" />
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    app:titleTextColor="#000000">
 
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ᗰEᗪIᗩᖇ"
+                            android:textStyle="bold"
+                            android:textSize="26dp"
+                            />
+
+                </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout

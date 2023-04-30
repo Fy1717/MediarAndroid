@@ -34,7 +34,6 @@ public class ProfileFragment extends Fragment {
 	private CircleImageView profilePic;
 	private TextView username, profile_url, name, followings_count, followers_count, posts_count, total_points;
 
-	private RecyclerView rvStories;
 	private StoryAdapter storyAdapter;
 	
 	private RecyclerView rvPosts;
@@ -71,7 +70,6 @@ public class ProfileFragment extends Fragment {
 		followings_count = view.findViewById(R.id.followings_count);
 		total_points = view.findViewById(R.id.total_points);
 		profile_url = view.findViewById(R.id.profile_url);
-		rvStories = view.findViewById(R.id.rvStories);
 		rvPosts = view.findViewById(R.id.rvPosts);
 		stories = new ArrayList<>();
 		posts = new ArrayList<>();
@@ -85,9 +83,6 @@ public class ProfileFragment extends Fragment {
 		
 		LinearLayoutManager storiesLayoutManager = new LinearLayoutManager(getContext());
 		storiesLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-		rvStories.setLayoutManager(storiesLayoutManager);
-		
-		rvStories.setAdapter(storyAdapter);
 		
 		populatePosts();
 		postAdapter = new PostAdapter(getContext(), posts);
