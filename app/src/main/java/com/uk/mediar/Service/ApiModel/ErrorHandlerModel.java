@@ -1,8 +1,5 @@
 package com.uk.mediar.Service.ApiModel;
 
-import com.google.gson.annotations.SerializedName;
-
-import java.util.LinkedHashMap;
 
 public class ErrorHandlerModel {
     public static ErrorHandlerModel errorHandlerModel;

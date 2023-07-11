@@ -18,7 +18,8 @@
             android:textSize="20dp"
             android:layout_marginRight="50dp"
             android:textStyle="bold"
-            android:background="@drawable/edittext_border"
+            android:textColor="@color/mediar_text_color"
+            android:background="@drawable/search_area_border"
             app:layout_constraintEnd_toStartOf="@+id/searchimage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +28,7 @@
             android:id="@+id/searchimage"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/search"
+            android:src="@drawable/mediar_search"
             app:layout_constraintBottom_toBottomOf="@+id/search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -8,5 +8,21 @@
         <color name="pink">#d23381</color>
         <color name="transparent">#00FFFFFF</color>
         <color name="selected_icon">#FE0000</color>
-        
+
+        <color name="teal_700">#FF018786</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="red">#FF0000</color>
+
+
+        <color name="mediar_text_color">#323237</color>
+        <color name="mediar_light_gray">#9C9AA0</color>
+        <color name="mediar_extra_light_gray">#F9F9F9</color>
+        <color name="mediar_ultra_light_gray">#E0DEE5</color>
+
+        <color name="mediar_dark_blue">#5E5AD7</color>
+        <color name="mediar_light_blue">#E9E9FF</color>
+        <color name="mediar_area_background">#E6E6EF</color>
+
+        <color name="mediar_light_green">#2AC984</color>
+
 </resources>

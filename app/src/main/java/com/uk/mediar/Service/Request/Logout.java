@@ -34,7 +34,7 @@ public class Logout extends ViewModel {
 
     private static Gson gson = new GsonBuilder().setLenient().create();
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://9ce7-2a02-4e0-2d26-8f2-7c3c-8aaa-24d2-45a1.ngrok-free.app/")
+            .baseUrl("https://93ea-31-223-43-206.ngrok-free.app/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
 

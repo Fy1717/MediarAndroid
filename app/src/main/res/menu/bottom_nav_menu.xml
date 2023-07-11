@@ -3,26 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_action_home"
-        android:title="MAIN"
+        android:icon="@drawable/mediar_main_page"
+        android:title="main"
         app:showAsAction="always"
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/search"
-        android:icon="@drawable/ic_action_search"
-        android:title="SEARCH"
+        android:icon="@drawable/mediar_search"
+        android:title="search"
         app:showAsAction="ifRoom"
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/notifications"
-        android:icon="@drawable/ic_action_heart"
-        android:title="NOTIFICATIONS"
+        android:icon="@drawable/mediar_notification"
+        android:title="notifier"
         app:showAsAction="ifRoom"
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_action_profile"
-        android:title="PROFILE"
+        android:icon="@drawable/mediar_profile"
+        android:title="profile"
         app:showAsAction="ifRoom"
         tools:ignore="HardcodedText"/>
 </menu>

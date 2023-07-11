@@ -11,8 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.uk.mediar.Activities.MainActivity;
 import com.uk.mediar.Adapters.TimelinePostAdapter;
+import com.uk.mediar.Model.Share;
 import com.uk.mediar.Model.TimelinePost;
 import com.uk.mediar.Model.User;
 import com.uk.mediar.R;
@@ -43,8 +46,29 @@ public class HomeFragment extends Fragment {
 		rvPosts = view.findViewById(R.id.rvPosts);
 		
 		//Populating posts
-		posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),370, "No caption", "10 min ago"));
-		posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),244, "And no need caption", "2 months ago"));
+
+		System.out.println("USER FOLLOWINGS : " + user.getFollowings().size() + user.getFollowings());
+
+		for (int i = 0; i < user.getFollowings().size(); i++) {
+			System.out.println("Following User: " + user.getFollowings().get(i) + user.getFollowings().get(i));
+
+			JsonObject followingUser = user.getFollowings().get(i).getAsJsonObject();
+
+			System.out.println("FollowingUserShares : " + followingUser.get("Shares"));
+
+			JsonArray followingUserShares = followingUser.get("Shares").getAsJsonArray();
+
+			for (int j = 0; j < followingUserShares.size(); j++) {
+				JsonObject followingUserShare = followingUserShares.get(j).getAsJsonObject();
+
+				System.out.println("Following User Share : " + followingUserShare);
+
+				posts.add(new TimelinePost(followingUser.get("Image").toString().replace("\"", ""), followingUser.get("Username").toString(), followingUser.get("Image").toString().replace("\"", ""), followingUserShare.get("point").getAsInt(), followingUserShare.get("content").toString(), "10 min ago"));
+			}
+		}
+
+		//posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),370, "No caption", "10 min ago"));
+		//posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),244, "And no need caption", "2 months ago"));
 		
 		rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 		

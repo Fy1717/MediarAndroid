@@ -1,5 +1,7 @@
 package com.uk.mediar.Model;
 
+import com.google.gson.JsonArray;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
@@ -11,16 +13,16 @@ public class User {
     private static String name;
     private static String password;
     private static String image;
-    private static ArrayList starredShares;
-    private static ArrayList followings;
-    private static ArrayList followers;
-    private static ArrayList<Share> posts;
-    private static ArrayList starredPosts;
+    private static JsonArray starredShares;
+    private static JsonArray followings;
+    private static JsonArray followers;
+    private static JsonArray posts;
+    private static JsonArray starredPosts;
     private static double totalPoints;
 
     private static User user;
 
-    private User() {
+    public User() {
         //Constructor have to be in the model
     }
 
@@ -80,43 +82,43 @@ public class User {
         User.name = name;
     }
 
-    public static ArrayList<Share> getStarredShares() {
+    public static JsonArray getStarredShares() {
         return starredShares;
     }
 
-    public static void setStarredShares(ArrayList<Share> starredShares) {
+    public static void setStarredShares(JsonArray starredShares) {
         User.starredShares = starredShares;
     }
 
-    public static ArrayList getFollowings() {
+    public static JsonArray getFollowings() {
         return followings;
     }
 
-    public static void setFollowings(ArrayList followings) {
+    public static void setFollowings(JsonArray followings) {
         User.followings = followings;
     }
 
-    public static ArrayList getFollowers() {
+    public static JsonArray getFollowers() {
         return followers;
     }
 
-    public static void setFollowers(ArrayList followers) {
+    public static void setFollowers(JsonArray followers) {
         User.followers = followers;
     }
 
-    public static ArrayList<Share> getPosts() {
+    public static JsonArray getPosts() {
         return posts;
     }
 
-    public static void setPosts(ArrayList<Share> posts) {
+    public static void setPosts(JsonArray posts) {
         User.posts = posts;
     }
 
-    public static ArrayList getStarredPosts() {
+    public static JsonArray getStarredPosts() {
         return starredPosts;
     }
 
-    public static void setStarredPosts(ArrayList starredPosts) {
+    public static void setStarredPosts(JsonArray starredPosts) {
         User.starredPosts = starredPosts;
     }
 

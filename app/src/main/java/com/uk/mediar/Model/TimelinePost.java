@@ -5,15 +5,15 @@ public class TimelinePost {
 	private String name;
 	private String imageUrl;
 	private int likes;
-	private String caption;
+	private String content;
 	private String date;
 	
-	public TimelinePost(String profilePic, String name, String imageUrl, int likes, String caption, String date) {
+	public TimelinePost(String profilePic, String name, String imageUrl, int likes, String content, String date) {
 		this.profilePic = profilePic;
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.likes = likes;
-		this.caption = caption;
+		this.content = content;
 		this.date = date;
 	}
 	
@@ -50,12 +50,12 @@ public class TimelinePost {
 		this.likes = likes;
 	}
 	
-	public String getCaption() {
-		return caption;
+	public String getContent() {
+		return content;
 	}
 	
-	public void setCaption(String caption) {
-		this.caption = caption;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 	public String getDate() {

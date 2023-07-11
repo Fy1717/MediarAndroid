@@ -1,248 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android" >
-        
-        <LinearLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:orientation="vertical"
-                xmlns:android="http://schemas.android.com/apk/res/android">
-                
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/light_gray_area_modal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mediar_extra_light_gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical">
+
                 <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="24dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                                xmlns:app="http://schemas.android.com/apk/res-auto"
-                                android:id="@+id/profile_image"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                app:civ_border_width="2dp"
-                                app:elevation="8dp"
-                                android:layout_marginEnd="40dp"
-                                app:civ_border_color="#e6d8d2"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/white_area_modal"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
 
                         <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="80dp"
-                                android:orientation="vertical"
-                                >
-
-                                <TextView
-                                    android:id="@+id/name"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/black"
-                                        android:text="Furkan Yıldız"
-                                        android:textStyle="bold"
-                                        android:textSize="15sp"
-                                        android:layout_weight="1"
-                                        android:maxLines="1"
-                                        />
-
-                                <TextView
-                                        android:id="@+id/username"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="frkann.17"
-                                        android:layout_weight="1"
-                                        android:maxLines="1"
-                                        />
-
-                                <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Software Developer"
-                                        android:layout_weight="1"
-                                        android:maxLines="1"
-                                        />
-
-                                <TextView
-                                        android:id="@+id/profile_url"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="www.frknyldz.net"
-                                        android:layout_weight="1"
-                                        android:maxLines="1"
-                                        />
-
-                        </LinearLayout>
-
-
-                </LinearLayout>
-                
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#ebebeb"
-                        android:orientation="horizontal"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="24dp"
-                        />
-                
-                
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingStart="24dp"
-                        android:paddingEnd="24dp"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="16dp"
-                        android:gravity="center"
-                        >
-                        
-                        
-                        <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_weight="1"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                >
-                                
-                                <TextView
-                                    android:id="@+id/posts_count"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textStyle="bold"
-                                        android:textColor="@color/black"
-                                        android:text="5"
-                                        android:textSize="15sp"
-                                        />
-                                
-                                <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Posts"
-                                        android:textAlignment="center"
-                                        android:layout_marginTop="4dp"
-                                        android:textSize="12sp"
-                                        />
-                        
-                        </LinearLayout>
-                        
-                        <LinearLayout
-                                android:gravity="center"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_weight="1"
-                                android:layout_gravity="center"
-                                >
-                                
-                                <TextView
-                                    android:id="@+id/followers_count"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textStyle="bold"
-                                        android:textColor="@color/black"
-                                        android:text="18m"
-                                        android:textSize="15sp"
-                                        />
-                                
-                                <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Followers"
-                                        android:textAlignment="center"
-                                        android:layout_marginTop="4dp"
-                                        android:textSize="12sp"
-                                        />
-                        
-                        </LinearLayout>
-                        
-                        <LinearLayout
-                                android:gravity="center"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_weight="1"
-                                android:layout_gravity="center"
-                                >
-                                
-                                <TextView
-                                    android:id="@+id/followings_count"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textStyle="bold"
-                                        android:textColor="@color/black"
-                                        android:text="10"
-                                        android:textSize="15sp"
-                                        />
-                                
-                                <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Followings"
-                                        android:textAlignment="center"
-                                        android:layout_marginTop="4dp"
-                                        android:textSize="12sp"
-                                        />
-
-                        
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            >
+                            android:orientation="horizontal"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="20dp"
+                            android:padding="24dp">
 
-                                <TextView
-                                    android:id="@+id/total_points"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/black"
-                                    android:text="5"
-                                    android:textSize="15sp"
-                                    />
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/profile_image"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    app:civ_border_width="2dp"
+                                    app:elevation="8dp"
+                                    android:layout_marginEnd="40dp"
+                                    app:civ_border_color="@color/mediar_light_green"/>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Points"
-                                    android:textAlignment="center"
-                                    android:layout_marginTop="4dp"
-                                    android:textSize="12sp"
-                                    />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:orientation="vertical">
 
+                                        <TextView
+                                            android:id="@+id/name"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:text="Furkan Yıldız"
+                                            android:textStyle="bold"
+                                            android:textSize="19sp"
+                                            android:layout_weight="1"
+                                            android:maxLines="1"/>
+
+                                        <TextView
+                                            android:id="@+id/username"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="frkann.17"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:layout_weight="1"
+                                            android:maxLines="1"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Software Developer"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:layout_weight="1"
+                                            android:maxLines="1"/>
+
+                                        <TextView
+                                            android:id="@+id/profile_url"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="www.frknyldz.net"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:layout_weight="1"
+                                            android:maxLines="1"/>
+                                </LinearLayout>
                         </LinearLayout>
-                
-                
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:orientation="horizontal"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:gravity="center"
+                            android:background="@drawable/light_gray_area_modal">
+
+                                <LinearLayout
+                                    android:id="@+id/posts_count_area"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:background="@drawable/white_area_modal"
+                                    android:layout_gravity="center"
+                                    android:gravity="center">
+
+                                        <TextView
+                                            android:id="@+id/posts_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:text="5"
+                                            android:textSize="15sp"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Posts"
+                                            android:textColor="@color/mediar_light_gray"
+                                            android:textAlignment="center"
+                                            android:layout_marginTop="4dp"
+                                            android:textSize="12sp"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/followers_count_area"
+                                    android:gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:layout_gravity="center">
+
+                                        <TextView
+                                            android:id="@+id/followers_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:text="18m"
+                                            android:textSize="15sp"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Followers"
+                                            android:textColor="@color/mediar_light_gray"
+                                            android:textAlignment="center"
+                                            android:layout_marginTop="4dp"
+                                            android:textSize="12sp"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/followings_count_area"
+                                    android:gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:layout_gravity="center">
+
+                                        <TextView
+                                            android:id="@+id/followings_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:text="10"
+                                            android:textSize="15sp"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Followings"
+                                            android:textColor="@color/mediar_light_gray"
+                                            android:textAlignment="center"
+                                            android:layout_marginTop="4dp"
+                                            android:textSize="12sp"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/total_points_area"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center">
+
+                                        <TextView
+                                            android:id="@+id/total_points"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/mediar_text_color"
+                                            android:text="5"
+                                            android:textSize="15sp"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Points"
+                                            android:textColor="@color/mediar_light_gray"
+                                            android:textAlignment="center"
+                                            android:layout_marginTop="4dp"
+                                            android:textSize="12sp"/>
+                                </LinearLayout>
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:text="FOLLOW"
+                            android:visibility="gone"
+                            android:layout_marginTop="30dp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/button" />
                 </LinearLayout>
-                
-                
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#ebebeb"
-                        android:orientation="horizontal"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="24dp"
-                        />
-                
+
                 <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvPosts"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="2dp"
-                        android:layout_margin="7dp"
-                        />
-        
+                    android:id="@+id/rvPosts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_area_modal"
+                    android:layout_margin="7dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFollowersProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_area_modal"
+                    android:layout_margin="7dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFollowingsProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_area_modal"
+                    android:layout_margin="7dp" />
+
                 <View
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        />
-        
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
         </LinearLayout>
-        
+
 </androidx.core.widget.NestedScrollView>

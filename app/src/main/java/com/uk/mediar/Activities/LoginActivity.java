@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void controlLogin(String username, String password) {
         User user = User.getInstance();
-        user.setUsername(username);
-        user.setPassword(password);
+        user.setUsername(username.replaceAll("\"",""));
+        user.setPassword(password.replaceAll("\"",""));
 
         Login model = new ViewModelProvider(this).get(Login.class);
 

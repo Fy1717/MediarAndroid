@@ -5,6 +5,7 @@ import com.uk.mediar.Service.ApiModel.LoginModel;
 import com.uk.mediar.Service.ApiModel.LogoutModel;
 
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -16,7 +17,7 @@ import retrofit2.http.Part;
 public interface UserAPI {
     @Multipart
     @POST("api/users/login")
-    Call<LoginModel> loginUser(
+    Call<ResponseBody> loginUser(
             @Part("username") RequestBody username,
             @Part("password") RequestBody password
     );

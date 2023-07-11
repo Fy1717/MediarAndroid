@@ -5,33 +5,48 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/mediar_extra_light_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/transparent" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:background="@color/mediar_extra_light_gray"
                     app:elevation="8dp"
                     android:gravity="right"
                     android:layout_gravity="right"
-                    app:titleTextColor="#000000">
+                    app:titleTextColor="@color/mediar_text_color">
+
+                        <Button
+                            android:id="@+id/back_button"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/mediar_back_button"
+                            />
 
                         <TextView
                             android:id="@+id/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/mediar_text_color"
                             android:text="ᗰEᗪIᗩᖇ"
-                            android:textStyle="bold"
+                            android:layout_gravity="center"
                             android:textSize="26dp"
                             />
 
                 </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
                 android:id="@+id/container"
@@ -53,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:backgroundTint="#a1702e"
+                    android:backgroundTint="@color/white"
                     app:fabAlignmentMode="end"
                     app:fabCradleMargin="10dp"
                     app:fabCradleRoundedCornerRadius="7dp">
@@ -64,10 +79,10 @@
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
                             android:elevation="0dp"
-                            android:outlineAmbientShadowColor="@android:color/transparent"
-                            android:outlineSpotShadowColor="@android:color/transparent"
-                            app:itemTextColor="#f0f1f2"
+                            app:itemTextColor="@color/mediar_light_gray"
+                            app:itemIconTint="@color/mediar_light_gray"
                             app:menu="@menu/bottom_nav_menu" />
+
                 </com.google.android.material.bottomappbar.BottomAppBar>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

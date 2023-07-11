@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="8dp"
-        android:layout_margin="4dp"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-        
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/light_gray_area_modal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
         <ImageView
-                android:id="@+id/imgPost"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                />
-        
-</androidx.cardview.widget.CardView>
+            android:id="@+id/imgPost"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintBottom_toTopOf="@+id/contentArea"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/point"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/drop_modal"
+            android:gravity="center"
+            android:text="87 like"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentArea" />
+
+        <ScrollView
+            android:id="@+id/contentArea"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:maxHeight="350dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="15dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/point"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPost">
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:gravity="center"
+                    android:paddingBottom="20dp"
+                    android:text="test text.."
+                    android:textColor="@color/mediar_text_color"
+                    android:textSize="10dp"
+                    android:textStyle="italic" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PYTHON"
+            android:textColor="@color/mediar_text_color"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imgPost"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

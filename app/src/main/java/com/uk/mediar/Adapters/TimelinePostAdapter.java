@@ -1,6 +1,7 @@
 package com.uk.mediar.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.uk.mediar.Activities.PostDetailPage;
+import com.uk.mediar.Model.PostDetail;
 import com.uk.mediar.Model.TimelinePost;
 import com.uk.mediar.R;
 
@@ -48,11 +51,28 @@ public class TimelinePostAdapter extends RecyclerView.Adapter<TimelinePostAdapte
 			.load(post.getImageUrl())
 			.into(postViewHolder.imgPost);
 		
-		postViewHolder.tvName.setText(post.getName());
+		postViewHolder.tvName.setText(post.getName().replace("\"", ""));
 		postViewHolder.tvLikes.setText(post.getLikes() + " likes");
-		postViewHolder.tvCaption.setText(post.getCaption());
+		postViewHolder.tvContent.setText(post.getContent().replace("\"", ""));
+		postViewHolder.tvCaption.setText("Category: Software");
 		postViewHolder.tvDate.setText(post.getDate());
-		
+
+		postViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				PostDetail selectedPost = PostDetail.getInstance();
+
+				selectedPost.setId(post.getName().replace("\"", ""));
+				selectedPost.setContent(post.getContent().replace("\"", ""));
+				selectedPost.setPoint(post.getLikes() + " likes");
+				selectedPost.setImageUrl(post.getImageUrl().replace("\"", ""));
+				selectedPost.setUserImageUrl(post.getProfilePic().replace("\"", ""));
+				selectedPost.setUserName(post.getName().replace("\"", ""));
+
+				Intent intent = new Intent(context, PostDetailPage.class);
+				context.startActivity(intent);
+			}
+		});
 	}
 	
 	@Override
@@ -65,11 +85,8 @@ public class TimelinePostAdapter extends RecyclerView.Adapter<TimelinePostAdapte
 	
 	class PostViewHolder extends RecyclerView.ViewHolder {
 		CircleImageView profilePic;
-		TextView tvName;
+		TextView tvName, tvLikes, tvCaption, tvDate, tvContent;
 		ImageView imgPost;
-		TextView tvLikes;
-		TextView tvCaption;
-		TextView tvDate;
 		
 		PostViewHolder(@NonNull View itemView) {
 			super(itemView);
@@ -78,6 +95,7 @@ public class TimelinePostAdapter extends RecyclerView.Adapter<TimelinePostAdapte
 			imgPost = itemView.findViewById(R.id.imgPost);
 			tvLikes = itemView.findViewById(R.id.tvLikes);
 			tvCaption = itemView.findViewById(R.id.tvCaption);
+			tvContent = itemView.findViewById(R.id.tvContent);
 			tvDate = itemView.findViewById(R.id.tvDate);
 			
 		}
