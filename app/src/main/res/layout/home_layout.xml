@@ -6,27 +6,20 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-        
-        
+                android:orientation="vertical">
+
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvPosts"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        />
-        
+                        android:layout_height="match_parent" />
+
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#ebebeb"
-                        />
-                
+                        android:background="#ebebeb" />
+
                 <View
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"/>
-
-                
+                android:layout_width="match_parent"
+                android:layout_height="110dp" />
         </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>

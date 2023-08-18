@@ -14,6 +14,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="Buraya bildirimler gelcek .d"
+            android:fontFamily="@font/niramit"
             android:textColor="@color/mediar_text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

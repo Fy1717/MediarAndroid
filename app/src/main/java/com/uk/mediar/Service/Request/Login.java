@@ -44,7 +44,7 @@ public class Login extends ViewModel {
 
     private static Gson gson = new GsonBuilder().setLenient().create();
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://93ea-31-223-43-206.ngrok-free.app/")
+            .baseUrl("https://8919-2a02-4e0-2d28-c37-808e-7769-6201-8956.ngrok-free.app/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
 
@@ -84,8 +84,6 @@ public class Login extends ViewModel {
                             System.out.println("LOGINMODEL STRING: " + myResponse.toString());
                             System.out.println("LOGINMODEL SUCCESS: " + result.getSuccess());
                             System.out.println("LOGINMODEL DATA: " + result.getData());
-
-                            System.out.println("LOGINMODEL FOLLOWERS: " + result.getData());
 
                             try {
                                 String email = String.valueOf(data.get("email"));

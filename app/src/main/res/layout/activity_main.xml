@@ -40,6 +40,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/mediar_text_color"
+                            android:fontFamily="@font/niramit_semibold"
                             android:text="ᗰEᗪIᗩᖇ"
                             android:layout_gravity="center"
                             android:textSize="26dp"
