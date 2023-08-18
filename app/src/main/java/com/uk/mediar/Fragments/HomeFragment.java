@@ -1,6 +1,7 @@
 package com.uk.mediar.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,38 +42,55 @@ public class HomeFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		
-		
-		posts = new ArrayList<>();
-		rvPosts = view.findViewById(R.id.rvPosts);
-		
-		//Populating posts
+		try {
+			posts = new ArrayList<>();
+			rvPosts = view.findViewById(R.id.rvPosts);
 
-		System.out.println("USER FOLLOWINGS : " + user.getFollowings().size() + user.getFollowings());
+			//Populating posts
 
-		for (int i = 0; i < user.getFollowings().size(); i++) {
-			System.out.println("Following User: " + user.getFollowings().get(i) + user.getFollowings().get(i));
+			System.out.println("USER FOLLOWINGS : " + user.getFollowings().size() + user.getFollowings());
 
-			JsonObject followingUser = user.getFollowings().get(i).getAsJsonObject();
+			for (int i = 0; i < user.getFollowings().size(); i++) {
+				System.out.println("Following User: " + user.getFollowings().get(i));
 
-			System.out.println("FollowingUserShares : " + followingUser.get("Shares"));
+				JsonObject followingUser = user.getFollowings().get(i).getAsJsonObject();
 
-			JsonArray followingUserShares = followingUser.get("Shares").getAsJsonArray();
+				System.out.println("FollowingUserShares : " + followingUser.get("Shares"));
 
-			for (int j = 0; j < followingUserShares.size(); j++) {
-				JsonObject followingUserShare = followingUserShares.get(j).getAsJsonObject();
+				JsonArray followingUserShares = followingUser.get("Shares").getAsJsonArray();
 
-				System.out.println("Following User Share : " + followingUserShare);
+				for (int j = 0; j < followingUserShares.size(); j++) {
+					JsonObject followingUserShare = followingUserShares.get(j).getAsJsonObject();
 
-				posts.add(new TimelinePost(followingUser.get("Image").toString().replace("\"", ""), followingUser.get("Username").toString(), followingUser.get("Image").toString().replace("\"", ""), followingUserShare.get("point").getAsInt(), followingUserShare.get("content").toString(), "10 min ago"));
+					System.out.println("Following User Share : " + followingUserShare);
+
+					System.out.println("Following User PP : " + String.valueOf(followingUser.get("Image")).replace("\"", ""));
+					System.out.println("Following User USERNAME : " +  String.valueOf(followingUser.get("Username")).replace("\"", ""));
+					System.out.println("Following User IMAGE : " + String.valueOf(followingUser.get("Image")).replace("\"", ""));
+					System.out.println("Following LIKE : " + Integer.valueOf(String.valueOf(followingUserShare.get("Point"))));
+					System.out.println("Following CONTENT : " + String.valueOf(followingUserShare.get("Content")));
+
+					posts.add(
+							new TimelinePost(
+									String.valueOf(followingUser.get("Image")).replace("\"", ""),
+									followingUser.get("Username").toString(),
+									String.valueOf(followingUser.get("Image")).replace("\"", ""),
+									Integer.valueOf(String.valueOf(followingUserShare.get("Point"))),
+									String.valueOf(followingUserShare.get("Content")),
+									"10 min ago"));
+				}
 			}
-		}
 
-		//posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),370, "No caption", "10 min ago"));
-		//posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),244, "And no need caption", "2 months ago"));
-		
-		rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
-		
-		postAdapter = new TimelinePostAdapter(getContext(), posts);
-		rvPosts.setAdapter(postAdapter);
+			//posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),370, "No caption", "10 min ago"));
+			//posts.add(new TimelinePost(user.getImage(), user.getUsername(), user.getImage(),244, "And no need caption", "2 months ago"));
+
+			rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
+			postAdapter = new TimelinePostAdapter(getContext(), posts);
+			rvPosts.setAdapter(postAdapter);
+		} catch (Exception e) {
+			Log.e("HOME-FRAGMENT", e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }

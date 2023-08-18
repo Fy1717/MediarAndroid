@@ -63,7 +63,7 @@ public class TimelinePostAdapter extends RecyclerView.Adapter<TimelinePostAdapte
 				PostDetail selectedPost = PostDetail.getInstance();
 
 				selectedPost.setId(post.getName().replace("\"", ""));
-				selectedPost.setContent(post.getContent().replace("\"", ""));
+				selectedPost.setContent(post.getContent().replace("\"", "").substring(0, 10) + "...");
 				selectedPost.setPoint(post.getLikes() + " likes");
 				selectedPost.setImageUrl(post.getImageUrl().replace("\"", ""));
 				selectedPost.setUserImageUrl(post.getProfilePic().replace("\"", ""));

@@ -125,7 +125,7 @@ public class ProfileFragment extends Fragment {
 		followers_count.setText(String.valueOf(user.getFollowers().size()));
 		followings_count.setText(String.valueOf(user.getFollowings().size()));
 		total_points.setText(String.valueOf((int) user.getTotalPoints()));
-		profile_url.setText("www.mediar.com/" + user.getUsername());
+		profile_url.setText("www.mediar.com/" + user.getUsername().replace("\"", ""));
 
 		posts_count_area.setOnClickListener(new View.OnClickListener() {
 			@Override

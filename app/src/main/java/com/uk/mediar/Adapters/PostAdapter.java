@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.uk.mediar.Activities.PostDetailPage;
 import com.uk.mediar.Model.Post;
 import com.uk.mediar.Model.PostDetail;
-import com.uk.mediar.Model.Share;
 import com.uk.mediar.R;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 	@Override
 	public PostViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 		return new PostViewHolder(LayoutInflater.from(context)
-		.inflate(R.layout.post_layout, viewGroup, false));
+		.inflate(R.layout.profile_post_layout, viewGroup, false));
 	}
 	
 	@Override
