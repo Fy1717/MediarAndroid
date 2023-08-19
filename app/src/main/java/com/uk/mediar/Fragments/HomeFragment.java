@@ -72,6 +72,7 @@ public class HomeFragment extends Fragment {
 
 					posts.add(
 							new TimelinePost(
+									Integer.valueOf(String.valueOf(followingUserShare.get("Id"))),
 									String.valueOf(followingUser.get("Image")).replace("\"", ""),
 									followingUser.get("Username").toString(),
 									String.valueOf(followingUser.get("Image")).replace("\"", ""),

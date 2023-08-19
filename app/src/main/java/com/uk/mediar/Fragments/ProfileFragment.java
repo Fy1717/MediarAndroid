@@ -12,7 +12,6 @@ import com.uk.mediar.Adapters.FollowersAdapter;
 import com.uk.mediar.Adapters.FollowingsAdapter;
 import com.uk.mediar.Adapters.PostAdapter;
 import com.uk.mediar.Model.Post;
-import com.uk.mediar.Model.Story;
 import com.uk.mediar.Model.User;
 import com.uk.mediar.R;
 

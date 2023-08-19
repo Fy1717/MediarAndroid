@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
 		Logout model = new ViewModelProvider(this).get(Logout.class);
 
-		model.getLogoutStatus(user.getToken())
+		model.getLogoutStatus(user.getToken().replace("\"", ""))
 				.observe(this, state -> {
 					Log.i("LOGOUT", "STATE : " + state);
 

@@ -7,8 +7,11 @@ public class TimelinePost {
 	private int likes;
 	private String content;
 	private String date;
+
+	private int id;
 	
-	public TimelinePost(String profilePic, String name, String imageUrl, int likes, String content, String date) {
+	public TimelinePost(int id, String profilePic, String name, String imageUrl, int likes, String content, String date) {
+		this.id = id;
 		this.profilePic = profilePic;
 		this.name = name;
 		this.imageUrl = imageUrl;
@@ -16,7 +19,14 @@ public class TimelinePost {
 		this.content = content;
 		this.date = date;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getProfilePic() {
 		return profilePic;
@@ -65,4 +75,5 @@ public class TimelinePost {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
 }

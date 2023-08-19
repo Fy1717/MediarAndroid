@@ -6,6 +6,7 @@ public class ErrorHandlerModel {
 
     public static String loginErrorMessage;
     public static String logoutErrorMessage;
+    public static String starPostErrorMessage;
 
 
     public static String getLoginErrorMessage() {
@@ -24,6 +25,13 @@ public class ErrorHandlerModel {
         ErrorHandlerModel.logoutErrorMessage = logoutErrorMessage;
     }
 
+    public static String getStarPostErrorMessage() {
+        return starPostErrorMessage;
+    }
+
+    public static void setStarPostErrorMessage(String starPostErrorMessage) {
+        ErrorHandlerModel.starPostErrorMessage = starPostErrorMessage;
+    }
 
     public static ErrorHandlerModel getInstance() {
         if (errorHandlerModel == null) {
